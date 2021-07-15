@@ -29,7 +29,6 @@ func main() {
 	}
 
 	store, err := bundle.Store()
-	fmt.Println(store)
 	if err != nil {
 		log.Fatalf("Failed to create storage from bundle: %v", err)
 	}
@@ -44,7 +43,7 @@ func main() {
 		rego.Compiler(compiler),
 		rego.Store(store),
 		rego.Input(input),
-		rego.Query("data.rbac.allow = allowed"),
+		rego.Query("data.rbac.allow = allow"),
 	)
 
 	rs, err := r.Eval(context.Background())
@@ -57,7 +56,7 @@ func main() {
 		log.Fatal("Policy decision is undefined. Policy query returned no results.")
 	}
 
-	allowed, ok := rs[0].Bindings["allowed"].(bool)
+	allowed, ok := rs[0].Bindings["allow"].(bool)
 	fmt.Println(allowed, ok)
 
 	if !ok || !allowed {
