@@ -1,0 +1,79 @@
+{
+    "user_roles": {
+        "user1": [
+            "team_admin",
+            "cloud_admin",
+            "approver"
+        ],
+        "user2": [
+            "team_admin",
+            "cloud_admin",
+            "approver"
+        ],
+        "user4": [
+            "team_admin",
+            "approver"
+        ],
+        "user5": [
+            "member"
+        ],
+        "user6":[
+            "cloud_admin",
+            "member"
+        ]
+    },
+    "role_grants": {
+        "team_admin": [
+            {
+                "action": "crud",
+                "type": "team"
+            },
+            {
+                "action": "crud",
+                "type": "user"
+            }
+        ],
+        "cloud_admin": [
+            {
+                "action": "crud",
+                "type": "provider"
+            },
+            {
+                "action": "crud",
+                "type": "accounts"
+            },
+            {
+                "action": "crud",
+                "type": "flavor"
+            }
+        ],
+        "approver": [
+            {
+                "action": "crud",
+                "type": "approve"
+            }
+        ],
+        "member": [
+            {
+                "action": "read",
+                "type": "team"
+            },
+            {
+                "action": "read",
+                "type": "user"
+            },
+            {
+                "action": "read",
+                "type": "provider"
+            },
+            {
+                "action": "read",
+                "type": "accounts"
+            },
+            {
+                "action": "read",
+                "type": "flavor"
+            }
+        ]
+    }
+}
